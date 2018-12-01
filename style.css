@@ -26,21 +26,21 @@
 #nav {
     float: left;
     width: 15%;
-    background-color: gray;
+    background-color: #eeeeee;
     padding-top: 20px;
 }
 
 #nav a {
     display: block;
     padding-left: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     text-decoration: none;
+    color: #353535;
 }
 
 #main {
     float: right;
     width: 85%;
-    background-color: #eeeeee;
 }
 
 /*
