@@ -1,0 +1,64 @@
+#all {
+    margin: auto;
+    width: 1000px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    /* background-image: url("https://i.stack.imgur.com/iPsyl.png"); */
+}
+
+#header {
+    margin: 5px 0;
+    padding: 2px 0 2px 20px;
+    font-size: small;
+    color: white;
+    background-color: black;
+}
+
+#contain {
+    display: flex;
+    width: 100%;
+}
+
+#nav, #main {
+    min-height: 500px;
+}
+
+#nav {
+    float: left;
+    width: 15%;
+    background-color: gray;
+    padding-top: 20px;
+}
+
+#nav a {
+    display: block;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+#main {
+    float: right;
+    width: 85%;
+    background-color: #eeeeee;
+}
+
+/*
+button {
+    background-color: #DB8A31;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+button:hover {
+    background-color: #5A6C54;
+}
+
+button:focus {
+    outline: none;
+}
+*/
