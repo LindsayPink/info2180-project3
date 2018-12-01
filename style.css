@@ -43,6 +43,11 @@
     width: 85%;
 }
 
+#icon {
+    padding-left: 10px;
+    height: 16px;
+    width: 16px;
+}
 /*
 button {
     background-color: #DB8A31;
