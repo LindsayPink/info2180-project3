@@ -5,6 +5,7 @@
         <meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="hireme.js" type="text/javascript"></script>
     </head>
