@@ -12,9 +12,6 @@ $(document).ready(function() {
 
     requestContent(page);
 
-    // Update the page title in the browser tab TODO Write function to specify for each page
-    document.title += '| ' + formatForUrl(page);
-
     // Update active class on navigation links
     removeActiveClass();
     $(event.target).parent().addClass('active');
