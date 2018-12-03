@@ -38,7 +38,8 @@ $(document).ready(function() {
     $('#nav-' + page).parent().addClass('active');
   });
   
-  
+  //on click of log in button
+  $("#login").on('click', houseKey);
 });
 
 function formatForUrl(page) {
@@ -52,4 +53,32 @@ function requestContent(filename) {
 
 function removeActiveClass() {
   $('nav li.active').removeClass('active');
+}
+
+function houseKey(element) {
+    element.preventDefault();
+    var httpRequest = new XMLHttpRequest();
+    let userE = document.getElementById("email").value.trim();
+    let userP = document.getElementById("password").value.trim();
+    if (userE === "admin" && userP === "password123") {
+      var url = "login.php";
+      httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            var response = httpRequest.responseText;
+            var result = document.querySelector('#main');
+            result.innerHTML = response;
+          } else {
+            alert('There was a problem with the request.');
+            }
+        }
+      };
+      
+      httpRequest.open('POST', url);
+      httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      httpRequest.send('name=' + encodeURIComponent(userE) + "&idnumber=" + encodeURIComponent(userP));
+    } else {
+        var result = document.querySelector('#main');
+        result.innerHTML = "Invalid email address or password";
+    }
 }
