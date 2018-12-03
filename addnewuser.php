@@ -2,14 +2,14 @@
 
 <form action="" method="post">
     <div class="form-group">
-        <label for="text">First name</label>
-        <input type="text" name="email" id="fname" class="form-control" placeholder="John" required/>
+        <label for="fname">First name</label>
+        <input type="text" name="fname" id="fname" class="form-control" placeholder="John" required/>
     </div>
     
     <br>
     
     <div class="form-group">
-        <label for="password">Last name</label>
+        <label for="lname">Last name</label>
         <input type="text" name="lname"  id="lname" class="form-control" placeholder="Doe" required/>
     </div>
     
@@ -23,14 +23,14 @@
     <br>
     
     <div class="form-group">
-        <label for="password">Email</label>
+        <label for="email">Email</label>
         <input type="email" name="email"  id="email" class="form-control" placeholder="someone@example.com" required/>
     </div>
     
     <br>
     
     <div class="form-group">
-        <label for="password">Telephone</label>
+        <label for="tel">Telephone</label>
         <input type="tel" name="tel"  id="tel" class="form-control" placeholder="876-555-0123" required/>
     </div>
     
