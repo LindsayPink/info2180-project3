@@ -13,7 +13,7 @@ $userP = $_POST['userP'];
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 $conn->query('SELECT * FROM Jobs');
 
-$jobs = $conn->query('SELECT * FROM Jobs LIMIT 8');
+$jobs = $conn->query('SELECT * FROM Jobs LIMIT 5');
 
 
 $statement = $conn->query("SELECT * FROM JobsAppliedFor");
