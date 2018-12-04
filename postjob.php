@@ -1,6 +1,6 @@
 <h2 id="view">New Job</h2>
 
-<form action="" method="post">
+<form action="" method="post" id="newjob">
     <div class="form-group">
         <label for="jtitle">Job Title</label>
         <input type="text" name="jtitle" id="jtitle" class="form-control" placeholder="e.g. Senior Designer or Product Manager" required/>
@@ -10,14 +10,23 @@
     
     <div class="form-group">
         <label for="jdescrip">Job Description</label>
-        <input type="text" name="jdescrip"  id="jdescrip" class="form-control" placeholder="Tell potential employees what this job is about." required/>
+        <textarea form="newjob" name="jdescrip" id="jdescrip" class="form-control" rows="5" required>Tell potential employees what this job is about.
+        </textarea>
     </div>
     
     <br>
     
     <div class="form-group">
         <label for="cat">Category</label>
-        <input type="text" name="cat"  id="cat" class="form-control" required/>
+        <select form="newjob" name="cat" required>
+            <option value="Sales & Marketing">Sales & Marketing</option>
+            <option value="Design">Design</option>
+            <option value="Programming">Programming</option>
+            <option value="Business & Management">Business & Management</option>
+            <option value="Customer Support">Customer Support</option>
+            <option value="DevOps & Sysadmin">DevOps & Sysadmin</option>
+         </select>
+
     </div>
     
     <br>
