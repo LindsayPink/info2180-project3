@@ -25,7 +25,7 @@ window.onload = function () {
     jobSub.addEventListener("click", goUser);
     jobPost.addEventListener("click", goJob);
     apply.addEventListener("click", leave);*/
-};
+
 
 /*function goHome () {
     
@@ -64,3 +64,5 @@ function houseKey () {
     httpRequest.open('GET', url);
     httpRequest.send();
 }
+ 
+  };
