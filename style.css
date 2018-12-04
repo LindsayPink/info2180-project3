@@ -69,6 +69,17 @@ input {
     font-family: 'Raleway', sans-serif;
 }
 
+select, textarea {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+}
+
 table {
     font-family: 'Raleway', sans-serif;
     border-collapse: collapse;
@@ -113,4 +124,9 @@ button:focus {
 p {
     background-color: #F2E721;
     color: #252525;
+}
+
+#job {
+    text-decoration: none;
+    color: #59C3C3;
 }
