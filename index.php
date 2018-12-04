@@ -18,10 +18,10 @@
         
         <div id="contain">
             <nav id="nav">
-                <img id="icon" class="home" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png" alt="homepage icon"> Home<a class="home" href="dashboard.php"></a>
-                <img id="icon" class="add" src="https://img.icons8.com/metro/1600/add-user-male.png" alt="add user icon"> Add User<a class="add" href="addnewuser.php"></a>
-                <img id="icon" class="new" src="https://sonaesierracms-v2.cdnpservers.net/wp-content/uploads/sites/16/2015/01/Safety_Tips.png" alt="new job icon"> New Job<a class="new" href="postjob.php"></a>
-                <img id="icon" class="exit" src="https://png.pngtree.com/svg/20161129/a_logout_257817.png" alt="logout icon"> Logout<a class="exit" href="logout.php"></a>
+                <a class="home" href="dashboard.php"><img id="icon" class="home" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png" alt="homepage icon"> Home</a>
+                <a class="add" href="addnewuser.php"><img id="icon" class="add" src="https://img.icons8.com/metro/1600/add-user-male.png" alt="add user icon"> Add User</a>
+                <a class="new" href="postjob.php"><img id="icon" class="new" src="https://sonaesierracms-v2.cdnpservers.net/wp-content/uploads/sites/16/2015/01/Safety_Tips.png" alt="new job icon"> New Job</a>
+                <a class="exit" href="logout.php"><img id="icon" class="exit" src="https://png.pngtree.com/svg/20161129/a_logout_257817.png" alt="logout icon"> Logout</a>
             </nav>
             
             <main id="main">
