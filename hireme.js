@@ -4,11 +4,6 @@ $(document).ready(function() {
     event.preventDefault();
 
     let page = $(this).attr("href");
-    
-    /*Use the History API to update the browser history with the
-    new URL so we can use the browser back and forward buttons */
-    let stateObj = { page: formatForUrl(page) };
-    history.pushState(stateObj, null, formatForUrl(page));
 
     requestContent(page);
 
@@ -37,6 +32,10 @@ $(document).ready(function() {
   
   //on click of log in button
   $("#login").on('click', houseKey);
+  
+  $("#submitJ").on('click',addJob);
+  
+  $("submitU").on('click',addUser);
 });
 
 function formatForUrl(page) {
@@ -58,7 +57,7 @@ function houseKey(element) {
     let userE = document.getElementById("email").value.trim();
     let userP = document.getElementById("password").value.trim();
     if (userE === "admin" && userP === "password123") {
-      var url = "login.php";
+      var url = "dashboard.php";
       httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
           if (httpRequest.status === 200) {
@@ -66,7 +65,7 @@ function houseKey(element) {
             var result = document.querySelector('#main');
             result.innerHTML = response;
           } else {
-            alert('There was a problem with the request.');
+              alert('There was a problem with the request.');
             }
         }
       };
@@ -74,8 +73,22 @@ function houseKey(element) {
       httpRequest.open('POST', url);
       httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       httpRequest.send('name=' + encodeURIComponent(userE) + "&idnumber=" + encodeURIComponent(userP));
+    } else if (userE === "" && userP === "") {
+      
     } else {
         var result = document.querySelector('#main');
         result.innerHTML = "Invalid email address or password";
     }
+}
+
+function addJob(argument) {
+  // body...
+}
+
+function addUser () {
+    let fname = document.getElementById("fname").value.trim();
+    let lname = document.getElementById("lname").value.trim();
+    let pwd = document.getElementById("password").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let tel = document.getElementById("tel").value.trim();
 }
