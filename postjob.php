@@ -10,8 +10,7 @@
     
     <div class="form-group">
         <label for="jdescrip">Job Description</label>
-        <textarea form="newjob" name="jdescrip" id="jdescrip" class="form-control" rows="5" required>Tell potential employees what this job is about.
-        </textarea>
+        <textarea form="newjob" name="jdescrip" id="jdescrip" class="form-control" rows="5" placeholder="Tell potential employees what this job is about."required></textarea>
     </div>
     
     <br>
