@@ -1,3 +1,8 @@
+<?php 
+session_unset();
+//session_destroy();
+?>
+
 <h2 id="view">Log out successful</h2>
 
 <div id="details">

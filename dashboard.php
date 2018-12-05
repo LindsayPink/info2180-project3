@@ -1,4 +1,7 @@
-<?php require 'dash.php'; ?>
+<?php require 'dash.php'; 
+session_start();
+$_SESSION['userID'] = '400';
+?>
 
 <h2 id="view">Dashboard</h2>
 <h3>Available Jobs</h3>
@@ -37,12 +40,12 @@ foreach ($jobs as $job) {
         </tr>
     </thead>
     <tbody>
-        <tr>
+    
 <?php    
 foreach ($jobsAppliedFor as $jobsA) {
-  echo '<td>' . $jobsA['company_name'] . '</td>
+  echo '<tr><td>' . $jobsA['company_name'] . '</td>
         <td><a href="job.php" id="job">' . $jobsA['job_title'] . '</a></td>
         <td>' . $jobsA['category'] . '</td>
         <td>' . $jobsA['date_posted'] . '</td>';
 } ?>
-</tr></tbody></table>
+</tbody></table>

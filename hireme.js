@@ -1,13 +1,18 @@
 window.onload = function() {
+var t=setInterval(runFunction,1000);
+function runFunction () {
 /*global $ history*/
-$(document).ready(function() {
-  $("nav a").on('click', function(event) {
-    event.preventDefault();
-    let page = $(this).attr("href");
-    requestContent(page);
-  });
 
- 
+  $("nav a").on('click', function(event) {
+    if (sessionStarted) {
+      event.preventDefault();
+      let page = $(this).attr("href");
+      requestContent(page);
+    } else {
+      alert ("You must log in first");
+    }
+    });
+    
   /*$(window).on('popstate', function(event) {
     // This is triggered whenever a user clicks the forward and back buttons
     // in the web browser.
@@ -26,18 +31,17 @@ $(document).ready(function() {
   
   //on click of log in button
   $("#login").on('click', houseKey);
+
+  $("#submitJ").on('click', addJob);
   
-  $("#submitJ").on('click',addJob);
-  
-  $("submitU").on('click',addUser);
+  $("#submitU").on('click', addUser);
   
   //on click of job title links
-  $("a").on('click', function(event) {
-    event.preventDefault();
-    let page = $(this).attr("href");
-    requestContent(page);
-  });
-});
+  // $("a").on('click', function(event) {
+  //   event.preventDefault();
+  //   let page = $(this).attr("href");
+  //   requestContent(page);
+  // });
 
 function formatForUrl(page) {
   var pageName = page.split('.');
@@ -48,53 +52,105 @@ function requestContent(filename) {
   $('main').load(filename);
 }
 
+function sessionStarted () {
+  let sessh = '@Session["userID"]';
+  if ("@Session['userID']") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function houseKey(element) {
-    element.preventDefault();
-    var httpRequest = new XMLHttpRequest();
-    let userE = document.getElementById("email").value.trim();
-    let userP = document.getElementById("password").value.trim();
-    if (userE === "admin" && userP === "password123") {
-      var url = "dashboard.php";
-      httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-          if (httpRequest.status === 200) {
-            var response = httpRequest.responseText;
-            var result = document.querySelector('#main');
-            result.innerHTML = response;
-          } else {
-              alert('There was a problem with the request.');
-            }
-        }
-      };
-      
-      httpRequest.open('POST', url);
-      httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      httpRequest.send('name=' + encodeURIComponent(userE) + "&idnumber=" + encodeURIComponent(userP));
-    } else if (userE === "" && userP === "") {
-      
-    } else {
-        var result = document.querySelector('#main');
-        result.innerHTML = "Invalid email address or password";
-    }
-}
-
-function addJob(argument) {
-  // body...
-}
-
-function addUser () {
-    let fname = document.getElementById("fname").value.trim();
-    let lname = document.getElementById("lname").value.trim();
-    let pwd = document.getElementById("password").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let tel = document.getElementById("tel").value.trim();
+  element.preventDefault();
+  var httpRequest = new XMLHttpRequest();
+  let userE = document.getElementById("email").value.trim();
+  let userP = document.getElementById("password").value.trim();
+  if (userE === "admin" && userP === "password123") {
+    var url = "dashboard.php";
+    httpRequest.onreadystatechange = function () {
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+          var response = httpRequest.responseText;
+          var result = document.querySelector('#main');
+          result.innerHTML = response;
+        } else {
+            alert('There was a problem with the request.');
+          }
+      }
+    };
     
+    httpRequest.open('POST', url);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send('name=' + encodeURIComponent(userE) + "&idnumber=" + encodeURIComponent(userP));
+  } else if (userE === "" && userP === "") {
+    
+  } else {
+      var result = document.querySelector('#main');
+      result.innerHTML = "Invalid email address or password";
+  }
+}
+
+function addJob(element) {
+  element.preventDefault();
+  let jtitle = document.getElementById("jtitle").value.trim();
+  let jdescrip = document.getElementById("jdescrip").value.trim();
+  let cat = document.getElementById("cat").value.trim();
+  let comp = document.getElementById("comp").value.trim();
+  let jloc = document.getElementById("jloc").value.trim();
+  
+  var httpRequest = new XMLHttpRequest();
+  
+  if(jtitle && jdescrip && cat && comp && jloc) {
+    var url = "postjob.php";
+    httpRequest.onreadystatechange = function () {
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+          var response = httpRequest.responseText;
+          var result = document.querySelector('#main');
+          result.innerHTML = response;
+        } else {
+            alert('There was a problem with the request.');
+          }
+      }
+    };
+    
+    httpRequest.open('POST', url);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send(encodeURIComponent(jtitle) + encodeURIComponent(jdescrip) + encodeURIComponent(cat) + encodeURIComponent(comp) + encodeURIComponent(jloc));
+  }
+}
+
+function addUser (element) {
+  element.preventDefault();
+  let fname = document.getElementById("fname").value.trim();
+  let lname = document.getElementById("lname").value.trim();
+  let pwd = document.getElementById("password").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let tel = document.getElementById("tel").value.trim();
+
+  var httpRequest = new XMLHttpRequest();
+  if(fname && lname && pwd && email && tel) {
+    var url = "dashboard.php";
+    httpRequest.onreadystatechange = function () {
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+          var response = httpRequest.responseText;
+          var result = document.querySelector('#main');
+          result.innerHTML = response;
+        } else {
+            alert('There was a problem with the request.');
+          }
+      }
+    };
+    
+    httpRequest.open('POST', url);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send('name=' + encodeURIComponent(fname) + "&idnumber=" + encodeURIComponent(fname));
+  }
 }
 
 
-
-   
-    
  function isValidEmail(email) {
   return /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/.test(email);
 }
@@ -151,7 +207,6 @@ function isValidPassword(pwd){
       element.preventDefault();
     }
 });
-};
 
 function isEmpty(elementValue) {
   if (elementValue.length == 0) {
@@ -174,5 +229,6 @@ function displayErrorMessage(formField, message) {
 function insertAfter(element, newNode) {
   element.parentNode.insertBefore(newNode, this.nextSibling);
 }
+}
 
-
+};

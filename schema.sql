@@ -6,7 +6,7 @@ CREATE TABLE Users(
 id  INT PRIMARY KEY AUTO_INCREMENT,
 firstname VARCHAR(32) DEFAULT NULL,
 lastname VARCHAR(32) DEFAULT NULL,
-password VARCHAR(16) DEFAULT NULL,
+password VARCHAR(256) DEFAULT NULL,
 telephone CHAR(10),
 email VARCHAR(32) DEFAULT NULL,
 date_joined DATE
@@ -26,17 +26,30 @@ CREATE TABLE JobsAppliedFor(
 id INT PRIMARY KEY AUTO_INCREMENT,
 job_id  INT,
 user_id  INT,
-date_applied DATE
+date_applied DATE,
+category VARCHAR(32) DEFAULT NULL,
+date_posted DATE,
+company_name VARCHAR(100) DEFAULT NULL,
+job_title VARCHAR(32) DEFAULT NULL
 );
 
-INSERT INTO Users (email, password) VALUES
-("admin", "password123");
+INSERT INTO JobsAppliedFor(company_name, job_title, category, date_posted) VALUES
+('NCB', 'Director Customer Support', 'Customer Support', '2018-08-20'),
+('Guardian Life', 'Manager', 'DevOps & Sysadmin', '2018-09-20'),
+('VMBS', 'Software Engineer', 'Programming', '2018-12-01');
 
+
+
+INSERT INTO Users (email, password) VALUES
+("admin", MD5( "password123"));
+ 
 INSERT INTO Jobs (company_name, job_title, category, date_posted) VALUES
 ('Jamaica Gleaner', 'Production Marketing Manager', 'Sales & Marketing', '2018-11-03'),
 ('UWI - MITS', 'Software Engineer', 'Programming', '2018-11-02'),
 ('NCB', 'Business Analyst - Scrum Master', 'Business & Management', '2018-11-01'),
 ('Jamaica Yellow Pages', 'UX/UI Designer', 'Design', '2018-10-20'),
 ('UWI - Busary', 'Director Customer Support', 'Customer Support', '2018-10-20'),
-('Sagicor Bank', 'Senior Systems Engineer', 'DevOps & Sysadmin', '2018-10-20');
+('Sagicor Bank', 'Senior Systems Engineer', 'DevOps & Sysadmin', '2018-10-20'),
 ('Basecamp', 'Software Engineer', 'Programming', '2018-05-01');
+
+    

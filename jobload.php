@@ -1,11 +1,6 @@
 <?php //to get scheme data for job page head
-$host = getenv('IP');
 
-$username = getenv('C9_USER');
-
-$password = '';
-
-$dbname = 'scheme';
+require_once "config.php";
 
 $userE = $_POST['userE'];
 $userP = $_POST['userP'];
